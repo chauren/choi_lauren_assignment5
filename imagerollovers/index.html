@@ -5,14 +5,14 @@
 <script>
 
 //02: Helper function to retrieve the ID of each image
-function getImage(e) {
-    var helper = document.getElementById("e");
+function getImage(id) {
+    return document.getElementById(id);
 }
 //03: Rollover function that performs the rollover effect on each image
-    function Rollover(imageId, newImageURL) {
-        this.imageId = imageId;
-        this.newImageURL = newImageURL;
-    }
+//    function Rollover(imageId, newImageURL) {
+//        this.imageId = imageId;
+//        this.newImageURL = newImageURL;
+//    }
     
     //04: Create a copy of this function and store it in a variable
 //	var target = function Rollover(imageId, newImageURL) {
@@ -23,29 +23,28 @@ function getImage(e) {
     	//06: Store the new image URL in a property
     	//07: Store the old image's ID in a property
     	//08: Store the old image URL in a property
-    var target = function Rollover(imageId, newImageURL) {
-        this.image = function getImage(imageID){
-            return getImage;
-        };
-        this.newImageURL = newImageURL;
-        this.oldImageURL = this.image.src;
-    }
+    function Rollover(imageId, newImageURL) {
+        var target = this;
+        target.image = getImage(imageId);
+        target.newImageURL = newImageURL;
+        target.oldImageURL = this.image.src;
+    
     //09, 10, 11: Attach onmouseover and onmouseout event handlers to target.image property
     target.image.onmouseover = function() {
-        target.image.src = newImageURL;
+        target.image.src = target.newImageURL;
     }
     target.image.onmouseout = function() {
-        target.image.src = oldImageURL;
+        target.image.src = target.oldImageURL;
     }
-
+}
 
 //12, 13: Event handler to create 5 new Rollover objects once the page loads
 window.addEventListener("load", function () {
-    new Rollover("image1", "home_over.png");
-    new Rollover("image2", "aboutus_over.png");
-    new Rollover("image3", "solutions_over.png");
-    new Rollover("image4", "support_over.png");
-    new Rollover("image5", "contactus_over.png");
+    var rollover1 = new Rollover("image1", "home_over.png");
+    var rollover2 = new Rollover("image2", "aboutus_over.png");
+    var rollover3 = new Rollover("image3", "solutions_over.png");
+    var rollover4 = new Rollover("image4", "support_over.png");
+    var rollover5 = new Rollover("image5", "contactus_over.png");
     
 });
     
