@@ -3,29 +3,61 @@
 <head>
 <title>Assignment 5, Part 3 - Image Rollovers</title>
 <script>
-//02: Helper function to retrienve the ID of each image
 
+//02: Helper function to retrieve the ID of each image
+function getImage(e) {
+    var helper = document.getElementById("e");
+}
 //03: Rollover function that performs the rollover effect on each image
+    function Rollover(imageId, newImageURL) {
+        this.imageId = imageId;
+        this.newImageURL = newImageURL;
+    }
+    
     //04: Create a copy of this function and store it in a variable
-	
+//	var target = function Rollover(imageId, newImageURL) {
+//        this.imageId = imageId;
+//        this.newImageURL = newImageURL;
+//    }
 	//05: Create 3 new properties including newImageURL, image, and oldImageURL
     	//06: Store the new image URL in a property
     	//07: Store the old image's ID in a property
     	//08: Store the old image URL in a property
-
+    var target = function Rollover(imageId, newImageURL) {
+        this.image = function getImage(imageID){
+            return getImage;
+        };
+        this.newImageURL = newImageURL;
+        this.oldImageURL = this.image.src;
+    }
     //09, 10, 11: Attach onmouseover and onmouseout event handlers to target.image property
+    target.image.onmouseover = function() {
+        target.image.src = newImageURL;
+    }
+    target.image.onmouseout = function() {
+        target.image.src = oldImageURL;
+    }
+
 
 //12, 13: Event handler to create 5 new Rollover objects once the page loads
-
+window.addEventListener("load", function () {
+    new Rollover("image1", "home_over.png");
+    new Rollover("image2", "aboutus_over.png");
+    new Rollover("image3", "solutions_over.png");
+    new Rollover("image4", "support_over.png");
+    new Rollover("image5", "contactus_over.png");
+    
+});
+    
 </script>
 </head>
 
 <body>
 	<!-- 01 -->
-    <img src="home.png">
-    <img src="aboutus.png">
-    <img src="solutions.png">
-    <img src="support.png">
-    <img src="contactus.png">
+    <img src="home.png" id="image1">
+    <img src="aboutus.png" id="image2">
+    <img src="solutions.png" id="image3">
+    <img src="support.png" id="image4">
+    <img src="contactus.png" id="image5">
 </body>
 </html>
