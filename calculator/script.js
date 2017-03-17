@@ -2,13 +2,14 @@ window.addEventListener("load", init);
 
 function init() {
     "use strict";
-    var calculator;
-    calculator = document.getElementById("calculator").addEventListener("click", enter);
+    var calculator = document.querySelector("#calculator"); calculator.addEventListener("click", function enter(e), false);
 }
     
-function enter(this.value) {
-        var numberInput = e.value;
-        document.getElementById("calculator").value += 0;
+function enter(e) {
+    if (e.target !== e.currentTarget) {
+        var clickedItem = e.target.id;
+        document.getElementById("calculator").value += e.target.value;
+    }
         e.stopPropagation();
     }
 
