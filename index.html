@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 5</title>
+    <!-- SCRIPT FOR Q5 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", init, false);
+        function init() {
+            button5.addEventListener("click", writeMessage, false);
+        }
+        function writeMessage() {
+            alert("Hello World");
+        }
+    </script>
+    <!-- END SCRIPT FOR Q5-->
+    
+</head>
+<body>
+    <h3>Practice with Forms and the DOM Event Model</h3>
+    1. <button onclick="writeMessage ()">Click Me</button><br>
+    2. <button id="button2">Click Me Two</button><br>
+    3. <button id="button3">Click Me Three</button><br>
+    4. <button id="button4">Click Me Four</button><br>
+    5. <input id="button5" type="button" value="Click Me Five"><br>
+    6. <a href="http://www.google.com" id="redirect">Visit Google</a><br>
+    7. <input type="text" id="textbox" value="enter something"><button type="submit" id="button7">Submit</button><br>
+    8. <button id="button8">Click me</button><br>
+    9. <button id="button9start">Start</button> <button id="button9stop">Stop</button><br><br>
+    10. <form action="">
+        <select name="dropdown" id="dropdown">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+        </select>
+        <button id="button10">Select</button>
+    </form><br>
+    
+    <script src="script.js"></script>
+</body>
+</html>
